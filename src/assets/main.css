@@ -76,18 +76,18 @@ nav {
 }
 
 .social-icons .linkedin:hover {
-  background-color: #0e76a8;
-  color: #fff;
+  background-color: #040b14;
+  color: #fff !important;
 }
 
 .social-icons .github:hover {
   background-color: #040b14;
-  color: #fff;
+  color: #fff !important;
 }
 
 .social-icons .facebook:hover {
-  background-color: #3b5998;
-  color: #fff;
+  background-color: #040b14;
+  color: #fff !important;
 }
 
 section.resume-section .resume-section-content {

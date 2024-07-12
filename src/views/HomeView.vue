@@ -1,9 +1,9 @@
 <script setup>
-import HelloWorld from '../components/HelloWorld.vue'
+import Apropo from '../components/Apropo.vue'
 </script>
 
 <template>
   <main>
-    <HelloWorld />
+    <Apropo />
   </main>
 </template>
