@@ -5,6 +5,7 @@
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
+    background-color: rgba(8, 20, 37, 0.85);
 }
 
 a{
@@ -174,8 +175,6 @@ section.resume-section .resume-section-content {
   }
 
   section.resume-section {
-    padding-left: 3rem;
-    padding-right: 3rem;
     padding-top: 5rem;
     padding-bottom: 5rem;
   }

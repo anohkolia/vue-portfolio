@@ -9,12 +9,10 @@ export default {
 </script>
 
 <template>
-  <div id="app">
     <HeaderNavbar />
     <main>
       <router-view />
     </main>
-  </div>
 </template>
 
 <style>

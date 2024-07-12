@@ -1,9 +1,11 @@
 <script setup>
-import Apropo from '../components/Apropo.vue'
+import Apropos from '../components/Apropos.vue'
+import Experience from "@/components/Experience.vue";
 </script>
 
 <template>
   <main>
-    <Apropo />
+    <Apropos />
+    <Experience/>
   </main>
 </template>
