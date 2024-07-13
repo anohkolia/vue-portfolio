@@ -33,13 +33,14 @@
 
 <template>
   <section class="resume-section">
-    <div class="resume-section-content">
-      <h2 class="fw-bold text-uppercase text-success mb-5"><i class="bi bi-patch-check me-2"></i>Expérience</h2>
+    <div class="resume-section-content box">
+      <h2 class="fw-bold text-uppercase text-success mb-4"><i class="bi bi-patch-check me-2"></i>Expérience</h2>
 
-      <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
+      <div class="d-flex flex-column justify-content-between mb-4">
         <div class="flex-grow-1" v-for="experience in experiences">
+          <div class="flex-shrink-0"><span class="text-success">{{ experience.date }}</span></div>
           <h3 class="fw-semibold text-uppercase mb-0">{{ experience.titre }}</h3>
-          <div class="titre mb-3">{{ experience.entreprise }}</div>
+          <div class="titre mb-2">{{ experience.entreprise }}</div>
           <p class="lead">{{ experience.contenu }}</p>
         </div>
       </div>

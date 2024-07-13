@@ -30,10 +30,5 @@
 </template>
 
 <style>
-  .box {
-    padding: 30px;
-    background-color: rgba(4, 11, 20, 0.75);
-    box-shadow: 0 2px 4px 0 #198754;
-    border-radius: 10px;
-  }
+
 </style>
