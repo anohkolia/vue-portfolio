@@ -32,6 +32,7 @@
 </script>
 
 <template>
+  <!--Expérience-->
   <section class="resume-section">
     <div class="resume-section-content box">
       <h2 class="fw-bold text-uppercase text-success mb-4"><i class="bi bi-patch-check me-2"></i>Expérience</h2>

@@ -47,7 +47,7 @@ a{
   top: 50%;
   mix-blend-mode: difference;
   z-index: 10000;
-  border: 1px dashed hsla(160, 100%, 37%, 1);
+  border: 1.5px dashed #fff;
   height: 40px;
   width: 40px;
   transition: all 300ms ease-out;
@@ -91,8 +91,8 @@ a{
 section.resume-section {
 	display: flex;
 	align-items: center;
-	padding-left: 1rem;
-	padding-right: 1rem;
+	/* padding-left: 1rem;
+	padding-right: 1rem; */
 	max-width: 75rem;
 }
 
