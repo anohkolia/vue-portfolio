@@ -27,11 +27,11 @@ const formations = {
     date: '2020 - 2023'
   },
 
-    formation5: {
-        titre: 'Baccalauréat série D',
-        ecole: 'Collège Moderne CHRIST-ROI, Bonoua (CI)',
-        date: '2019 - 2020'
-    }
+  formation5: {
+    titre: 'Baccalauréat série D',
+    ecole: 'Collège Moderne CHRIST-ROI, Bonoua (CI)',
+    date: '2019 - 2020'
+  }
 }
 
 </script>
