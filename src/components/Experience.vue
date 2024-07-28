@@ -34,7 +34,7 @@
 <template>
   <!--Expérience-->
   <section class="resume-section">
-    <div class="resume-section-content box">
+    <div class="resume-section-content box" id="experience">
       <h2 class="fw-bold text-uppercase text-success mb-4"><i class="bi bi-patch-check me-2"></i>Expérience</h2>
 
       <div class="d-flex flex-column justify-content-between mb-4">

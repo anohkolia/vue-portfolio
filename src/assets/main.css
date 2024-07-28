@@ -10,11 +10,11 @@
 
 body {
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /></svg>'), auto;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
   line-height: 1.5;
-  color: #fff;
+  color: #fff !important;
   margin: 0;
   padding: 0;
   transition: all 0.5s;
@@ -32,6 +32,11 @@ a{
   }
 
   #app {
+    max-width: 1280px;
+    margin: 0 auto;
+    /* padding: 2rem; */
+    font-weight: normal;
+    background-color: rgba(8, 20, 37, 0.85);
   }
 }
 
@@ -214,7 +219,7 @@ section.resume-section .resume-section-content {
   
   body {
     padding-top: 0;
-    padding-left: 17rem;
+    padding-left: 16rem;
   }
 
   #sideNav {

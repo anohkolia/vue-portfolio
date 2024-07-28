@@ -15,7 +15,7 @@ const competences = {
 <template>
     <!--Compétences-->
     <section class="resume-section">
-        <div class="resume-section-content box">
+        <div class="resume-section-content box" id="skill">
             <h2 class="fw-bold text-uppercase text-success mb-4"><i class="bi bi-stars me-2"></i> Compétences</h2>
 
             <div class="d-flex flex-column justify-content-between mb-4">

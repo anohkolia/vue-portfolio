@@ -39,7 +39,7 @@ const formations = {
 <template>
     <!--Formation-->
     <section class="resume-section">
-        <div class="resume-section-content box">
+        <div class="resume-section-content box" id="formation">
             <h2 class="fw-bold text-uppercase text-success mb-4"><i class="bi bi-journals me-2"></i> Formation</h2>
 
             <div class="d-flex flex-column justify-content-between mb-4">

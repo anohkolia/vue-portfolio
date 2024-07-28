@@ -16,7 +16,7 @@ document.addEventListener("click", function () {
   }, 500);
 });
 
-// Selectionne tous les éléments <a> du document et les stocke dans la variable links
+/* // Selectionne tous les éléments <a> du document et les stocke dans la variable links
 const links = document.querySelectorAll("a");
 //console.log("XXXXXXXXXXXXXXXXXx", links);
 
@@ -32,4 +32,4 @@ links.forEach((link) => {
     //console.log("Mouse over of link");
     cursor.classList.remove("cursor-grow");
   });
-});
+}); */

@@ -4,8 +4,8 @@
 
 <template>
   <!--À propos-->
-  <section class="resume-section" id="about">
-    <div class="resume-section-content box">
+  <section class="resume-section">
+    <div class="resume-section-content box" id="about">
         <h1 class="fw-bold mb-0">Kolia
             <span class="text-success">ANOH</span>
         </h1>

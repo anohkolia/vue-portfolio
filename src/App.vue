@@ -9,10 +9,10 @@ export default {
 </script>
 
 <template>
-    <HeaderNavbar />
-    <main>
-      <router-view />
-    </main>
+  <HeaderNavbar />
+  <main>
+    <router-view />
+  </main>
 </template>
 
 <style>
