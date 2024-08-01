@@ -1,24 +1,19 @@
-import './assets/main.css'
+import './assets/main.css';
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
 
-// Import Bootstrap CSS
-import 'bootstrap/dist/css/bootstrap.css'
-// Import Bootstrap Vue 3
-import BootstrapVue3 from 'bootstrap-vue-3'
+// import bootstrap css
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.js';
 
-// Import BootstrapVue CSS
-import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
+// import bootstrapVue3 from 'bootstrap-vue-3'
+import 'bootstrap-vue-3/dist/bootstrap-vue-3.css';
 
-// Import Bootstrap js
-import 'bootstrap/dist/js/bootstrap.bundle.min'
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(BootstrapVue3)
+app.use(router);
 
-app.use(router)
-
-app.mount('#app')
+app.mount('#app');

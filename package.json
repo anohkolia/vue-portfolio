@@ -10,13 +10,14 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
-    "bootstrap-vue": "^2.23.1",
-    "bootstrap-vue-3": "^0.5.1",
+    "bootstrap-vue-3": "^0.3.12",
+    "emailjs-com": "^3.2.0",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vite-plugin-vue-devtools": "^7.3.1"
   }
 }

@@ -1,18 +1,14 @@
-<script>
-
-</script>
-
 <template>
-  <!--À propos-->
-  <section class="resume-section">
+    <!--À propos-->
+  <section class="resume-section pt-5">
     <div class="resume-section-content box" id="about">
         <h1 class="fw-bold mb-0">Kolia
             <span class="text-success">ANOH</span>
         </h1>
-        <div class="fw-semibold d-flex contact mb-2">
+        <div class="fw-semibold contact mb-2 align-items-center">
             <p class="me-3 gap-1 d-flex"><i class="bi bi-geo-alt-fill"></i>Rennes, France</p>
             <p class="me-3 gap-1 d-flex"><i class="bi bi-phone"></i>(+33) 7 65 80 69 15</p>
-            <p class="gap-2 d-flex"><i class="bi bi-envelope"></i><a href="mailto:contact.anohkolia@gmail.com">contact.anohkolia@gmail.com</a></p>
+            <p class="gap-2 d-flex align-items-center"><i class="bi bi-envelope"></i><a href="mailto:contact.anohkolia@gmail.com">contact.anohkolia@gmail.com</a></p>
         </div>
         <h4 class="fw-bold text-success">Profile</h4>
         <p class="lead mb-5">Etudiant en développement web passionné par le numérique et les technologies. <br>

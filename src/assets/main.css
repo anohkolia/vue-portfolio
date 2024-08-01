@@ -3,7 +3,7 @@
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   font-weight: normal;
   background-color: rgba(8, 20, 37, 0.85);
 }
@@ -18,30 +18,38 @@ body {
   margin: 0;
   padding: 0;
   transition: all 0.5s;
+  background-color: rgba(8, 20, 37, 0.85) !important;
 }
 
 a{
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="hsla(160, 100%, 37%, 1)" stroke="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /></svg>'), auto;
+  text-decoration: none;
   color: hsla(160, 100%, 37%, 1) !important;
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /></svg>'), auto
+  transition: 0.4s;
+  padding: 3px;
+  font-weight: 700 !important;
 }
 
+@media (hover: hover) {
+  a:hover {
+    color: ivory !important;
+  }
+}
 
 @media (min-width: 1024px) {
   body {
-    display: flex;
+  
   }
 
   #app {
-    max-width: 1280px;
-    margin: 0 auto;
-    /* padding: 2rem; */
-    font-weight: normal;
-    background-color: rgba(8, 20, 37, 0.85);
+  
+   
   }
 }
 
-/************************************************/
 
+
+/*******************************************************/
 
 .cursor {
   position: fixed;
@@ -60,10 +68,10 @@ a{
 }
 
 /* Changer la taille du curseur lorsqu'on survole un lien */
-.cursor-grow {
+/* .cursor-grow {
   height: 80px;
   width: 80px;
-}
+} */
 
 
 .bulle {
@@ -93,13 +101,7 @@ a{
   }
 }
 
-section.resume-section {
-	display: flex;
-	align-items: center;
-	/* padding-left: 1rem;
-	padding-right: 1rem; */
-	max-width: 75rem;
-}
+
 
 nav {
   background: #040b14;
@@ -125,9 +127,16 @@ nav {
 
 .profile-mobile {
   width: 30px;
-  height: 30px;
+  height: 30px !important;
   border: 0.2rem solid rgba(255, 255, 255, 0.2);
   border-radius: 100%;
+}
+
+section.resume-section {
+	display: flex;
+	align-items: center;
+	max-width: 75rem;
+  padding-top: 2rem;
 }
 
 .social-icons .social-icon {
@@ -163,10 +172,10 @@ section.resume-section .resume-section-content {
 }
 
 .box {
-    padding: 30px;
-    background-color: rgba(4, 11, 20, 0.75);
-    box-shadow: 0 2px 4px 0 #198754;
-    border-radius: 10px;
+  padding: 30px;
+  background-color: rgba(4, 11, 20, 0.75);
+  box-shadow: 0 2px 4px 0 #198754;
+  border-radius: 10px;
 }
 
 .titre {
@@ -214,12 +223,12 @@ section.resume-section .resume-section-content {
   }
 
   .contact {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
   
   body {
     padding-top: 0;
-    padding-left: 16rem;
+    padding-left: 17rem;
   }
 
   #sideNav {
@@ -248,87 +257,75 @@ section.resume-section .resume-section-content {
     width: 100%;
   }
 
-  section.resume-section {
-
+  .contact {
+    display: flex;
   }
 
 }
-
-@media (min-width: 768px) {
-    section.resume-section {
-        min-height: 60vh;
-    }
-}
-
 
 /* Responsive pour écran mobile */
 
 @media (max-width: 991.98px) {
 
-    .social-icons .linkedin:hover {
-        background-color: #040b14;
-        color: #fff !important;
-    }
+  section.resume-section {
+    padding-top: 1rem;
+  }
 
-    .social-icons .github:hover {
-        background-color: #040b14;
-        color: #fff !important;
-    }
+  .titre {
+    font-size: 1rem;
+  }
 
-    .social-icons .facebook:hover {
-        background-color: #040b14;
-        color: #fff !important;
-    }
+  h1 {
+    font-size: 2.5rem;
+  }
 
-    .titre {
-        font-size: 1rem;
-    }
+  h2 {
+    font-size: 1.5rem;
+  }
 
-    h1 {
-        font-size: 2.5rem;
-    }
+  h3 {
+    font-size: 1rem;
+  }
 
-    h2 {
-        font-size: 1.5rem;
-    }
+  p {
+    font-size: 1rem;
+  }
 
-    h3 {
-        font-size: 1rem;
-    }
+  .contact a {
+    font-size: 1rem;
+  }
 
-    p {
-        font-size: 1rem;
-    }
-
-    .contact a {
-        font-size: 1rem;
-    }
-
-    #btn-back-to-top {
-        display: block;
-    }
+  #btn-back-to-top {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 768px){
 
-    .contact {
-        font-size: 1rem;
-        display: block !important;
-    }
+  #sideNav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+  }
 
-    .contact p {
-        margin-bottom: 0 !important;
-    }
+  .contact {
+    font-size: 1rem;
+    display: block !important;
+  }
+
+  .contact p {
+    margin-bottom: 0 !important;
+  }
 }
 
 @media (max-width: 1187px){
 
-    .contact {
-        font-size: 1.5rem;
-        display: block !important;
-    }
+  .contact {
+    font-size: 1.5rem;
+    display: block !important;
+  }
 
-    .contact p {
-        margin-bottom: 0 !important;
-    }
+  .contact p {
+    margin-bottom: 0 !important;
+  }
 }
