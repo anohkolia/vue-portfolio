@@ -1,11 +1,11 @@
 <script setup>
 const formations = {
-  formation1: {
+  /* formation1: {
     titre: 'Bachelor en Développement Informatique',
     ecole: 'Sup de vinci, rennes',
     contenu: 'Spécialité : Développement web',
     date: '2023 - 2024'
-  },
+  }, */
   formation2: {
     titre: 'Licences 2 en ISTN',
     ecole: 'Université de Rennes 1',
