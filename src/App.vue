@@ -1,37 +1,62 @@
 <script setup>
-/* import { RouterLink, RouterView } from 'vue-router' */
+import { onMounted, onUnmounted } from 'vue'
 import HeaderNavbar from './components/HeaderNavbar.vue'
 
-// Sélectionne l'élément avec l'ID "cursor" et le stocke dans la variable cursor
-const cursor = document.getElementById("cursor");
-// Ajoute un écouteur d'événements pour le mouvement de la souris sur l'élément body du document
-document.body.addEventListener("mousemove", function (e) {
-  // Déplace l'élément avec l'ID "cursor" à la position de la souris
-  (cursor.style.left = e.clientX - 10 + "px"),
-    (cursor.style.top = e.clientY - 10 + "px");
-});
+const updateCursor = (e) => {
+  const cursor = document.getElementById('cursor')
+  if (cursor) {
+    const halfWidth = cursor.offsetWidth / 4
+    const halfHeight = cursor.offsetHeight / 4
+    cursor.style.left = `${e.clientX + halfWidth}px`
+    cursor.style.top = `${e.clientY + halfHeight}px`
+  }
+}
 
-// Ajoute un écouteur d'événements pour le clic sur le document
-document.addEventListener("click", function () {
-  cursor.classList.add("bulle");
+const handleClick = () => {
+  const cursor = document.getElementById('cursor')
+  if (cursor) {
+    cursor.classList.add('bulle')
+    setTimeout(() => {
+      cursor.classList.remove('bulle')
+    }, 500)
+  }
+}
 
-  setTimeout(function () {
-    cursor.classList.remove("bulle");
-  }, 500);
-});
+const smoothScroll = (e) => {
+  const target = e.target.getAttribute('href')
+  if (target && target.startsWith('#')) {
+    e.preventDefault()
+    const element = document.querySelector(target)
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }
+  }
+}
 
+onMounted(() => {
+  document.body.addEventListener('mousemove', updateCursor)
+  document.body.addEventListener('click', handleClick)
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', smoothScroll)
+  })
+})
+
+onUnmounted(() => {
+  document.body.removeEventListener('mousemove', updateCursor)
+  document.body.removeEventListener('click', handleClick)
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.removeEventListener('click', smoothScroll)
+  })
+})
 </script>
 
 <template>
   <HeaderNavbar />
-  
   <RouterView />
+  <div id="cursor" class="cursor" aria-hidden="true"></div>
 </template>
-
-<style scoped>
-
-
-@media (min-width: 1024px) {
-  
-}
-</style>
