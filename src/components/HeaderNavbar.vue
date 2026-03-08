@@ -59,12 +59,12 @@ onUnmounted(() => {
           @click="closeMenu"
         >
           <img
-            src="@/assets/profile.jpg"
+            src="@/assets/profile.png"
             alt="Kolia ANOH"
-            class="tw-h-12 tw-w-12 tw-rounded-full tw-border-2 tw-border-emerald-400/70 tw-object-cover lg:tw-h-36 lg:tw-w-36 lg:tw-rounded-2xl"
+            class="tw-h-12 tw-w-12 tw-rounded-full tw-border-2 tw-border-emerald-400/70 tw-object-cover lg:tw-h-36 lg:tw-w-36"
           >
           <span class="tw-flex tw-flex-col tw-leading-tight lg:tw-items-center">
-            <span class="tw-text-sm tw-font-semibold tw-uppercase tw-tracking-[0.2em] tw-text-emerald-200 lg:tw-text-base">Kolia ANOH</span>
+            <span class="tw-text-sm tw-font-semibold tw-uppercase tw-tracking-[0.2em] tw-text-emerald-200">Kolia ANOH</span>
             <span class="tw-text-[10px] tw-font-medium tw-uppercase tw-tracking-[0.2em] tw-text-slate-400">Web Developer</span>
           </span>
         </a>
@@ -81,7 +81,7 @@ onUnmounted(() => {
       </div>
 
       <ul
-        class="tw-space-y-2 tw-px-4 tw-pb-4 lg:tw-block lg:tw-space-y-3 lg:tw-px-6"
+        class="tw-list-none tw-space-y-2 tw-px-4 tw-pb-4 lg:tw-block lg:tw-space-y-3 lg:tw-px-6"
         :class="isMenuOpen ? 'tw-block' : 'tw-hidden lg:tw-block'"
       >
         <li v-for="item in navItems" :key="item.id">
