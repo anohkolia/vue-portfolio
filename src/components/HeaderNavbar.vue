@@ -6,6 +6,7 @@ const navItems = [
   { id: 'experience', label: 'Expérience', icon: 'bi bi-patch-check' },
   { id: 'formation', label: 'Formation', icon: 'bi bi-journals' },
   { id: 'skill', label: 'Compétences', icon: 'bi bi-stars' },
+  { id: 'project', label: 'Projets', icon: 'bi bi-laptop' },
   { id: 'hobbie', label: 'Hobbies', icon: 'bi bi-emoji-smile' },
   { id: 'contact', label: 'Contact', icon: 'bi bi-envelope-at' },
 ]

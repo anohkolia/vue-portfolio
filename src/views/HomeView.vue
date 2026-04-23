@@ -6,6 +6,7 @@ import ContactForm from '@/components/ContactForm.vue'
 import Experience from '@/components/Experience.vue'
 import Formation from '@/components/Formation.vue'
 import Hobbie from '@/components/Hobbie.vue'
+import Project from '@/components/Project.vue'
 
 const showBackToTop = ref(false)
 
@@ -42,6 +43,7 @@ onUnmounted(() => {
       <Experience />
       <Formation />
       <Competence />
+      <Project />
       <Hobbie />
       <ContactForm />
     </div>

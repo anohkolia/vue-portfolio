@@ -85,7 +85,7 @@
             <i class="bi bi-linkedin"></i>
             LinkedIn
           </a>
-          <a class="tw-flex tw-items-center tw-justify-center tw-gap-2 tw-rounded-xl tw-border tw-border-slate-600 tw-bg-slate-800/70 tw-px-4 tw-py-3 tw-text-sm tw-font-semibold tw-text-slate-100 tw-transition hover:tw--translate-y-1 hover:tw-border-white/40 hover:tw-bg-white/10" href="#" title="GitHub">
+          <a class="tw-flex tw-items-center tw-justify-center tw-gap-2 tw-rounded-xl tw-border tw-border-slate-600 tw-bg-slate-800/70 tw-px-4 tw-py-3 tw-text-sm tw-font-semibold tw-text-slate-100 tw-transition hover:tw--translate-y-1 hover:tw-border-white/40 hover:tw-bg-white/10" href="https://github.com/anohkolia" title="GitHub">
             <i class="bi bi-github"></i>
             GitHub
           </a>
