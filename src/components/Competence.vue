@@ -24,9 +24,18 @@ const skillCategories = [
     title: 'Outils & Méthodes',
     skills: [
       { name: 'Git', icon: 'bi bi-git', color: '#F05032', desc: 'Contrôle de version' },
-      { name: 'GitHub', icon: 'bi bi-github', color: '#ffffff', desc: 'Collaboration' },
+      { name: 'GitHub', icon: 'bi bi-github', color: '#ffffff', desc: 'Versioning & Collaboration' },
       { name: 'GitLab', icon: 'bi bi-gitlab', color: '#FC6D26', desc: 'CI/CD' },
       { name: 'Trello', icon: 'bi bi-trello', color: '#0079BF', desc: 'Gestion de projet' },
+    ],
+  },
+  {
+    title: 'Design & Graphisme',
+    skills: [
+      { name: 'Adobe Photoshop', icon: 'bi bi-brush-fill', color: '#31A8FF', desc: 'Édition d\'images' },
+      { name: 'Adobe Illustrator', icon: 'bi bi-vector-pen', color: '#FF9A00', desc: 'Création de vecteurs' },
+      { name: 'Canva', icon: 'bi bi-palette-fill', color: '#00C4CC', desc: 'Design simplifié' },
+      { name: 'Photopea', icon: 'bi bi-image-fill', color: '#FF6B6B', desc: 'Éditeur en ligne' },
     ],
   },
 ]

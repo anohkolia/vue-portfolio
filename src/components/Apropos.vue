@@ -56,7 +56,7 @@
           <span class="tw-inline-flex tw-h-8 tw-w-8 tw-items-center tw-justify-center tw-rounded-lg tw-bg-emerald-500/20">
             <i class="bi bi-person-badge"></i>
           </span>
-          Profil professionnel
+          Profil
         </h2>
         <p class="tw-mt-4 tw-text-slate-200/90 tw-leading-relaxed">
           Étudiant en développement web passionné par le numérique et les technologies innovantes. Je recherche une alternance pour renforcer mes compétences tout en contribuant à des projets concrets.
