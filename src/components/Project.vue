@@ -1,9 +1,36 @@
 <script setup>
 import { ref } from 'vue'
+import logo0 from '@/assets/designs/logo-0.png'
 import logo1 from '@/assets/designs/logo-1.png'
+import logo2 from '@/assets/designs/logo-2.png'
+import logo3 from '@/assets/designs/logo-3.png'
+import logo4 from '@/assets/designs/logo-4.png'
+import logo5 from '@/assets/designs/logo-5.png'
+import logo6 from '@/assets/designs/logo-6.png'
+import logo7 from '@/assets/designs/logo-7.png'
+
+import flyer1 from '@/assets/designs/flyer-1.png'
+import flyer2 from '@/assets/designs/flyer-2.png'
+import flyer3 from '@/assets/designs/flyer-3.png'
+import flyer4 from '@/assets/designs/flyer-4.png'
+import flyer5 from '@/assets/designs/flyer-5.png'
+import flyer6 from '@/assets/designs/flyer-6.png'
+import flyer7 from '@/assets/designs/flyer-7.png'
+import flyer8 from '@/assets/designs/flyer-8.png'
+import flyer9 from '@/assets/designs/flyer-9.png'
+import flyer10 from '@/assets/designs/flyer-10.png'
+import flyer11 from '@/assets/designs/flyer-11.png'
+import flyer12 from '@/assets/designs/flyer-12.png'
+import flyer13 from '@/assets/designs/flyer-13.png'
+import flyer14 from '@/assets/designs/flyer-14.png'
+
+import etiquette1 from '@/assets/designs/etiquette-1.png'
+import etiquette2 from '@/assets/designs/etiquette-2.png'
 
 const openedAlbum = ref(null)
 const zoomedImage = ref(null)
+const currentCategoryId = ref(null)
+const currentImageIndex = ref(null)
 
 const projectsWeb = [
   {
@@ -35,9 +62,14 @@ const designCategories = [
     icon: 'bi bi-pentagon-fill',
     couleur: '#9F7AEA',
     images: [
-      { id: 1, src: logo1, alt: 'Logo Design 1' },
-      { id: 2, src: logo1, alt: 'Logo Design 2' },
-      { id: 3, src: logo1, alt: 'Logo Design 3' },
+      { id: 0, src: logo0, alt: 'cc' },
+      { id: 1, src: logo1, alt: 'ivice sarl' },
+      { id: 2, src: logo2, alt: 'easi' },
+      { id: 3, src: logo3, alt: 'cab services' },
+      { id: 4, src: logo4, alt: 'trésor d\'estrella' },
+      { id: 5, src: logo5, alt: 'cosméthique' },
+      { id: 6, src: logo6, alt: 'cab services' },
+      { id: 7, src: logo7, alt: 'La tata' },
     ]
   },
   {
@@ -46,9 +78,20 @@ const designCategories = [
     icon: 'bi bi-file-earmark-pdf-fill',
     couleur: '#48BB78',
     images: [
-      { id: 1, src: logo1, alt: 'Flyer Design 1' },
-      { id: 2, src: logo1, alt: 'Flyer Design 2' },
-      { id: 3, src: logo1, alt: 'Flyer Design 3' },
+      { id: 1, src: flyer1, alt: 'Flyer Design 1' },
+      { id: 2, src: flyer2, alt: 'Flyer Design 2' },
+      { id: 3, src: flyer3, alt: 'Flyer Design 3' },
+      { id: 4, src: flyer4, alt: 'Flyer Design 4' },
+      { id: 5, src: flyer5, alt: 'Flyer Design 5' },
+      { id: 6, src: flyer6, alt: 'Flyer Design 6' },
+      { id: 7, src: flyer7, alt: 'Flyer Design 7' },
+      { id: 8, src: flyer8, alt: 'Flyer Design 8' },
+      { id: 9, src: flyer9, alt: 'Flyer Design 9' },
+      { id: 10, src: flyer10, alt: 'Flyer Design 10' },
+      { id: 11, src: flyer11, alt: 'Flyer Design 11' },
+      { id: 12, src: flyer12, alt: 'Flyer Design 12' },
+      { id: 13, src: flyer13, alt: 'Flyer Design 13' },
+      { id: 14, src: flyer14, alt: 'Flyer Design 14' },
     ]
   },
   {
@@ -57,12 +100,40 @@ const designCategories = [
     icon: 'bi bi-tag-fill',
     couleur: '#F6AD55',
     images: [
-      { id: 1, src: logo1, alt: 'Étiquette Produit 1' },
-      { id: 2, src: logo1, alt: 'Étiquette Produit 2' },
-      { id: 3, src: logo1, alt: 'Étiquette Produit 3' },
+      { id: 1, src: etiquette1, alt: 'Étiquette Produit 1' },
+      { id: 2, src: etiquette2, alt: 'Étiquette Produit 2' },
     ]
   },
 ]
+
+//logique de navigation entre les images avec des boutons gauche/droite
+const zoomImage = (image, categoryId, imageIndex) => {
+  zoomedImage.value = image
+  currentCategoryId.value = categoryId
+  currentImageIndex.value = imageIndex
+}
+
+const previousImage = () => {
+  if (currentCategoryId.value !== null && currentImageIndex.value !== null) {
+    const category = designCategories.find(c => c.id === currentCategoryId.value)
+    if (category) {
+      const newIndex = currentImageIndex.value === 0 ? category.images.length - 1 : currentImageIndex.value - 1
+      zoomedImage.value = category.images[newIndex]
+      currentImageIndex.value = newIndex
+    }
+  }
+}
+
+const nextImage = () => {
+  if (currentCategoryId.value !== null && currentImageIndex.value !== null) {
+    const category = designCategories.find(c => c.id === currentCategoryId.value)
+    if (category) {
+      const newIndex = currentImageIndex.value === category.images.length - 1 ? 0 : currentImageIndex.value + 1
+      zoomedImage.value = category.images[newIndex]
+      currentImageIndex.value = newIndex
+    }
+  }
+}
 </script>
 
 <template>
@@ -212,7 +283,7 @@ const designCategories = [
             >
               <!-- Modal -->
               <div
-                class="tw-relative tw-max-h-[90vh] tw-max-w-2xl tw-w-full tw-mx-4 tw-rounded-2xl tw-border tw-border-emerald-500/40 tw-bg-slate-900/95 tw-p-6 tw-backdrop-blur-md tw-transition-all tw-duration-700"
+                class="tw-relative tw-max-h-[90vh] tw-max-w-2xl tw-w-full tw-mx-4 tw-rounded-2xl tw-border tw-border-emerald-500/40 tw-bg-slate-900/40 tw-p-6 tw-backdrop-blur-md tw-transition-all tw-duration-700"
                 @click.stop
               >
                 <!-- En-tête déployé -->
@@ -255,7 +326,7 @@ const designCategories = [
                       <!-- Overlay au survol -->
                       <div class="tw-absolute tw-inset-0 tw-flex tw-items-center tw-justify-center tw-bg-black/50 tw-opacity-0 tw-transition group-hover:tw-opacity-100">
                         <button
-                          @click="zoomedImage = image"
+                          @click="zoomImage(image, category.id, idx)"
                           class="tw-inline-flex tw-items-center tw-justify-center tw-rounded-lg tw-bg-white/10 tw-p-3 tw-backdrop-blur tw-transition hover:tw-bg-white/20"
                           title="Agrandir"
                         >
@@ -279,7 +350,7 @@ const designCategories = [
           @click="zoomedImage = null"
         >
           <div
-            class="tw-relative tw-max-h-[95vh] tw-max-w-4xl tw-w-full tw-mx-4 tw-rounded-2xl tw-overflow-hidden"
+            class="tw-relative tw-max-h-100 tw-max-w-md tw-w-full tw-mx-4 tw-rounded-2xl tw-overflow-hidden"
             @click.stop
           >
             <!-- Image zoomée -->
@@ -295,6 +366,24 @@ const designCategories = [
               class="tw-absolute tw-top-4 tw-right-4 tw-inline-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-lg tw-bg-black/50 tw-text-white tw-transition hover:tw-bg-black/70"
             >
               <i class="bi bi-x tw-text-xl"></i>
+            </button>
+
+            <!-- Bouton navigation gauche -->
+            <button
+              @click="previousImage"
+              class="tw-absolute tw-left-4 tw-top-1/2 tw--translate-y-1/2 tw-inline-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-lg tw-bg-black/50 tw-text-white tw-transition hover:tw-bg-black/70"
+              title="Image précédente"
+            >
+              <i class="bi bi-chevron-left tw-text-xl"></i>
+            </button>
+
+            <!-- Bouton navigation droite -->
+            <button
+              @click="nextImage"
+              class="tw-absolute tw-right-4 tw-top-1/2 tw--translate-y-1/2 tw-inline-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-lg tw-bg-black/50 tw-text-white tw-transition hover:tw-bg-black/70"
+              title="Image suivante"
+            >
+              <i class="bi bi-chevron-right tw-text-xl"></i>
             </button>
 
             <!-- Info image -->
