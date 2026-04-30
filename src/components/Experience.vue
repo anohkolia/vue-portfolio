@@ -7,7 +7,7 @@ const experiences = [
     contenu:
       "Conception et développement d'une application permettant d'analyser et de présenter des statistiques sur les stations-service françaises.",
     technologies: ['Java', 'Swing', 'GitLab', 'Trello'],
-    date: 'Février 2024 à mai 2024',
+    date: 'Février 2025 à mai 2025',
     type: 'project',
   },
   {
@@ -31,7 +31,7 @@ const experiences = [
       'Conception graphique pour entreprises et particulers(Logo, Badge, flyers)',
     ],
     technologies: ['Adobe Photoshop', 'Adobe Illustrator', 'Canva', 'Photopea', 'Microsoft Office'],
-    date: '2022',
+    date: '2022-2023',
     type: 'work',
   },
 ]

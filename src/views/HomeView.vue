@@ -40,10 +40,10 @@ onUnmounted(() => {
 
     <div class="tw-relative tw-z-10 tw-mx-auto tw-max-w-5xl tw-space-y-8">
       <Apropos />
-      <Experience />
-      <Formation />
       <Competence />
       <Project />
+      <Experience />
+      <Formation />
       <Hobbie />
       <ContactForm />
     </div>
