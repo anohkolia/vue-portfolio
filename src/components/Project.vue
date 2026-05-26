@@ -228,7 +228,7 @@ const nextImage = () => {
           :key="category.id"
           @mouseenter="openedAlbum = category.id"
           @mouseleave="openedAlbum = null"
-          class="tw-perspective tw-relative"
+          class="tw-relative tw-pb-12"
         >
           <!-- Album empilé fermé -->
           <div
@@ -242,12 +242,12 @@ const nextImage = () => {
               class="tw-absolute tw-h-full tw-w-full tw-overflow-hidden tw-rounded-xl tw-border tw-border-emerald-500/20 tw-bg-slate-800/60 tw-transition-all tw-duration-700"
               :style="{
                 transform: openedAlbum === category.id
-                  ? `translateY(${idx * 15}px) translateX(${idx * 8}px) scale(1) rotateZ(${idx * 2}deg)`
-                  : `translateY(${idx * 12}px) scale(${1 - idx * 0.04})`,
+                  ? `translateY(${Math.min(idx, 4) * 15}px) translateX(${Math.min(idx, 4) * 8}px) scale(1) rotateZ(${Math.min(idx, 4) * 2}deg)`
+                  : `translateY(${Math.min(idx, 4) * 12}px) scale(${1 - Math.min(idx, 4) * 0.04})`,
                 zIndex: category.images.length - idx,
                 boxShadow: openedAlbum === category.id
-                  ? `0 ${10 + idx * 5}px ${30 + idx * 10}px rgba(0,0,0,0.4)`
-                  : `0 ${4 + idx * 2}px ${12 + idx * 4}px rgba(0,0,0,0.3)`,
+                  ? `0 ${10 + Math.min(idx, 4) * 5}px ${30 + Math.min(idx, 4) * 10}px rgba(0,0,0,0.4)`
+                  : `0 ${4 + Math.min(idx, 4) * 2}px ${12 + Math.min(idx, 4) * 4}px rgba(0,0,0,0.3)`,
                 opacity: openedAlbum === category.id ? 1 : 0.95
               }"
             >
@@ -399,11 +399,6 @@ const nextImage = () => {
 </template>
 
 <style scoped>
-/* Animations pour les albums */
-.tw-perspective {
-  perspective: 1000px;
-}
-
 /* Animation popup fade */
 .popup-fade-enter-active,
 .popup-fade-leave-active {
