@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import logo0 from '@/assets/designs/logo-0.png'
 import logo1 from '@/assets/designs/logo-1.png'
 import logo2 from '@/assets/designs/logo-2.png'
@@ -31,6 +31,27 @@ const openedAlbum = ref(null)
 const zoomedImage = ref(null)
 const currentCategoryId = ref(null)
 const currentImageIndex = ref(null)
+
+// Détection des appareils sans survol (mobile/tactile) pour activer l'ouverture au tap
+const isTouch = ref(false)
+let touchMql = null
+const updateIsTouch = (e) => { isTouch.value = e.matches }
+
+onMounted(() => {
+  touchMql = window.matchMedia('(hover: none)')
+  isTouch.value = touchMql.matches
+  touchMql.addEventListener('change', updateIsTouch)
+})
+
+onUnmounted(() => {
+  touchMql?.removeEventListener('change', updateIsTouch)
+})
+
+// Ouvre/ferme l'album au tap sur mobile (le survol gère le bureau)
+const toggleAlbum = (categoryId) => {
+  if (!isTouch.value) return
+  openedAlbum.value = openedAlbum.value === categoryId ? null : categoryId
+}
 
 const projectsWeb = [
   {
@@ -134,6 +155,21 @@ const nextImage = () => {
     }
   }
 }
+
+// Navigation par balayage (swipe) sur mobile dans la vue zoom
+let swipeStartX = 0
+
+const onSwipeStart = (e) => {
+  swipeStartX = e.changedTouches[0].screenX
+}
+
+const onSwipeEnd = (e) => {
+  const deltaX = e.changedTouches[0].screenX - swipeStartX
+  const threshold = 50 // distance minimale pour valider un balayage
+  if (Math.abs(deltaX) < threshold) return
+  if (deltaX < 0) nextImage()       // balayage vers la gauche → image suivante
+  else previousImage()              // balayage vers la droite → image précédente
+}
 </script>
 
 <template>
@@ -226,14 +262,15 @@ const nextImage = () => {
         <div
           v-for="category in designCategories"
           :key="category.id"
-          @mouseenter="openedAlbum = category.id"
-          @mouseleave="openedAlbum = null"
+          @mouseenter="!isTouch && (openedAlbum = category.id)"
+          @mouseleave="!isTouch && (openedAlbum = null)"
           class="tw-relative tw-pb-12"
         >
           <!-- Album empilé fermé -->
           <div
             class="tw-relative tw-h-56 tw-cursor-pointer"
             :class="{ 'tw-pointer-events-none': openedAlbum === category.id }"
+            @click="toggleAlbum(category.id)"
           >
             <!-- Cartes empilées (fermées) -->
             <div
@@ -352,6 +389,8 @@ const nextImage = () => {
           <div
             class="tw-relative tw-max-h-100 tw-max-w-md tw-w-full tw-mx-4 tw-rounded-2xl tw-overflow-hidden"
             @click.stop
+            @touchstart="onSwipeStart"
+            @touchend="onSwipeEnd"
           >
             <!-- Image zoomée -->
             <img
