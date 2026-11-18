@@ -1,92 +1,126 @@
 <script setup>
-const experiences = [
-  {
-    id: 1,
-    titre: 'Projet agile (en équipe)',
-    entreprise: 'Université de Rennes',
-    contenu:
-      "Conception et développement d'une application permettant d'analyser et de présenter des statistiques sur les stations-service françaises.",
-    technologies: ['Java', 'Swing', 'GitLab', 'Trello'],
-    date: 'Février 2025 à mai 2025',
-    type: 'project',
-  },
-  {
-    id: 2,
-    titre: 'Projet de soutenance licence',
-    entreprise: "Université Virtuelle de Côte d'Ivoire",
-    contenu: "Conception et développement de Portail de gestion d'une communauté.",
-    technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript', 'PHP', 'MySQL', 'GitHub'],
-    date: 'Juin 2023 à septembre 2023',
-    type: 'project',
-  },
-  {
-    id: 3,
-    titre: 'Freelance',
-    entreprise: 'Indépendant',
-    contenu: [
-      "Installation de systèmes d'exploitation, maintenance informatique",
-      'Formation sur logiciels bureautique (Word-Excel-PowerPoint)',
-      'Rédaction et traitement de documents, numérisation, impression',
-      'Community manager (Création et gestion de page Facebook)',
-      'Conception graphique pour entreprises et particulers(Logo, Badge, flyers)',
-    ],
-    technologies: ['Adobe Photoshop', 'Adobe Illustrator', 'Canva', 'Photopea', 'Microsoft Office'],
-    date: '2022-2023',
-    type: 'work',
-  },
-]
+import SectionHeading from '@/components/SectionHeading.vue'
+import { experiences } from '@/data/portfolio'
+
+const typeLabel = (type) => (type === 'project' ? 'Projet' : 'Expérience pro')
 </script>
 
 <template>
-  <section id="experience" class="content-section tw-scroll-mt-24 lg:tw-scroll-mt-8">
-    <div class="portfolio-card tw-p-6 sm:tw-p-8">
-      <h2 class="section-title">
-        <i class="bi bi-patch-check"></i>
-        Expérience
-      </h2>
+  <section id="experience" class="section" aria-labelledby="experience-title">
+    <div class="container-page">
+      <SectionHeading
+        id="experience-title"
+        index="04"
+        eyebrow="Parcours"
+        title="Expérience"
+        description="Projets d'équipe, projet de soutenance et missions en freelance."
+      />
 
-      <div class="tw-relative tw-mt-6 tw-space-y-5 tw-pl-6 before:tw-absolute before:tw-left-[7px] before:tw-top-1 before:tw-h-[calc(100%-0.5rem)] before:tw-w-px before:tw-bg-gradient-to-b before:tw-from-emerald-400/80 before:tw-via-emerald-300/20 before:tw-to-emerald-400/80">
-        <article
-          v-for="exp in experiences"
+      <ol class="timeline tw-relative tw-mt-10 tw-space-y-5 sm:tw-mt-12 md:tw-space-y-6">
+        <li
+          v-for="(exp, index) in experiences"
           :key="exp.id"
-          class="tw-relative tw-rounded-xl tw-border tw-border-emerald-500/20 tw-bg-slate-800/65 tw-p-5 tw-transition hover:tw-border-emerald-400/40 hover:tw-bg-slate-800"
+          v-reveal="index * 80"
+          class="timeline-item tw-relative"
         >
-          <span class="tw-absolute tw--left-[25px] tw-top-5 tw-inline-flex tw-h-4 tw-w-4 tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-border-emerald-400 tw-bg-slate-900"></span>
+          <span class="timeline-dot" aria-hidden="true"></span>
 
-          <div class="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-2">
-            <span class="tw-text-xs tw-font-semibold tw-uppercase tw-tracking-widest tw-text-emerald-300">{{ exp.date }}</span>
+          <!-- Date (colonne de gauche sur tablette et ordinateur) -->
+          <div class="tw-hidden md:tw-block md:tw-pt-6 md:tw-text-right">
+            <p class="tw-font-display tw-text-sm tw-font-semibold tw-text-emerald-300">{{ exp.date }}</p>
             <span
-              class="tw-rounded-full tw-px-3 tw-py-1 tw-text-[11px] tw-font-semibold tw-uppercase tw-tracking-wide"
-              :class="exp.type === 'project' ? 'tw-bg-emerald-500/20 tw-text-emerald-200' : 'tw-bg-blue-500/20 tw-text-blue-200'"
+              class="tw-mt-2 tw-inline-block tw-rounded-full tw-px-2.5 tw-py-0.5 tw-text-[0.6875rem] tw-font-semibold tw-uppercase tw-tracking-wider"
+              :class="exp.type === 'project' ? 'tw-bg-emerald-400/10 tw-text-emerald-200' : 'tw-bg-sky-400/10 tw-text-sky-200'"
             >
-              {{ exp.type === 'project' ? 'Projet' : 'Expérience' }}
+              {{ typeLabel(exp.type) }}
             </span>
           </div>
 
-          <h3 class="tw-mt-3 tw-text-lg tw-font-bold tw-text-white">{{ exp.titre }}</h3>
-          <p class="tw-mt-1 tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-slate-300">
-            <i class="bi bi-building tw-text-cyan-300"></i>
-            {{ exp.entreprise }}
-          </p>
+          <article class="card card-interactive tw-p-5 sm:tw-p-6">
+            <div class="tw-mb-3 tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-2 md:tw-hidden">
+              <p class="tw-font-display tw-text-sm tw-font-semibold tw-text-emerald-300">{{ exp.date }}</p>
+              <span
+                class="tw-rounded-full tw-px-2.5 tw-py-0.5 tw-text-[0.6875rem] tw-font-semibold tw-uppercase tw-tracking-wider"
+                :class="exp.type === 'project' ? 'tw-bg-emerald-400/10 tw-text-emerald-200' : 'tw-bg-sky-400/10 tw-text-sky-200'"
+              >
+                {{ typeLabel(exp.type) }}
+              </span>
+            </div>
 
-          <p v-if="typeof exp.contenu === 'string'" class="tw-mt-3 tw-text-sm tw-leading-relaxed tw-text-slate-200/90">
-            {{ exp.contenu }}
-          </p>
-          <ul v-else class="tw-mt-3 tw-list-disc tw-space-y-1 tw-pl-5 tw-text-sm tw-leading-relaxed tw-text-slate-200/90">
-            <li v-for="item in exp.contenu" :key="item">{{ item }}</li>
-          </ul>
+            <h3 class="tw-text-xl tw-font-semibold">{{ exp.title }}</h3>
+            <p class="tw-mt-1 tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-slate-300">
+              <i class="bi bi-building tw-text-cyan-300" aria-hidden="true"></i>
+              {{ exp.company }}
+            </p>
 
-          <div v-if="exp.technologies" class="tw-mt-4 tw-flex tw-flex-wrap tw-gap-2">
-            <span
-              v-for="tech in exp.technologies"
-              :key="tech"
-              class="tw-rounded-full tw-border tw-border-emerald-500/30 tw-bg-slate-900/70 tw-px-3 tw-py-1 tw-text-xs tw-font-medium tw-text-slate-100"
-            >
-              {{ tech }}
-            </span>
-          </div>
-        </article>
-      </div>
+            <p v-if="typeof exp.content === 'string'" class="tw-mt-4 tw-text-[0.9375rem] tw-leading-relaxed tw-text-slate-400">
+              {{ exp.content }}
+            </p>
+            <ul v-else class="tw-mt-4 tw-space-y-2">
+              <li
+                v-for="item in exp.content"
+                :key="item"
+                class="tw-flex tw-gap-2.5 tw-text-[0.9375rem] tw-leading-relaxed tw-text-slate-400"
+              >
+                <i class="bi bi-chevron-right tw-mt-0.5 tw-text-xs tw-text-emerald-300" aria-hidden="true"></i>
+                <span>{{ item }}</span>
+              </li>
+            </ul>
+
+            <ul v-if="exp.technologies?.length" class="tw-mt-5 tw-flex tw-flex-wrap tw-gap-2" aria-label="Outils utilisés">
+              <li v-for="tech in exp.technologies" :key="tech" class="chip">{{ tech }}</li>
+            </ul>
+          </article>
+        </li>
+      </ol>
     </div>
   </section>
 </template>
+
+<style scoped>
+/* Frise : ligne verticale + pastilles. Sur mobile, la ligne longe les cartes à gauche ;
+   à partir de 768px, la date passe dans une colonne dédiée. */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  left: 7px;
+  width: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, rgba(52, 211, 153, 0.7), rgba(34, 211, 238, 0.25) 70%, transparent);
+}
+
+.timeline-item {
+  padding-left: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 1.6rem;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  border: 2px solid #34d399;
+  background: #020617;
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.12);
+}
+
+@media (min-width: 768px) {
+  .timeline::before {
+    left: calc(10rem + 1.5rem - 1px);
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 10rem minmax(0, 1fr);
+    column-gap: 3rem;
+    padding-left: 0;
+  }
+
+  .timeline-dot {
+    left: calc(10rem + 1.5rem - 8px);
+  }
+}
+</style>

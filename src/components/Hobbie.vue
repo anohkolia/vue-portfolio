@@ -1,47 +1,38 @@
 <script setup>
-const hobbies = [
-  {
-    id: 1,
-    titre: 'Informatique',
-    contenu: "Manipulation d'outils informatiques et veille régulière sur les technologies.",
-    icon: 'bi bi-pc-display-horizontal',
-  },
-  {
-    id: 2,
-    titre: 'Jeux vidéo',
-    contenu: 'Je joue principalement à des jeux FPS, aventure, arcade et stratégie.',
-    icon: 'bi bi-controller',
-  },
-  {
-    id: 3,
-    titre: 'Trading',
-    contenu: "Suivi de contenus éducatifs pour apprendre à lire les courbes et analyser le marché.",
-    icon: 'bi bi-graph-up-arrow',
-  },
-]
+import SectionHeading from '@/components/SectionHeading.vue'
+import { hobbies } from '@/data/portfolio'
 </script>
 
 <template>
-  <section id="hobbie" class="content-section tw-scroll-mt-24 lg:tw-scroll-mt-8">
-    <div class="portfolio-card tw-p-6 sm:tw-p-8">
-      <h2 class="section-title">
-        <i class="bi bi-emoji-smile"></i>
-        Hobbies
-      </h2>
+  <section id="hobbie" class="section" aria-labelledby="hobbie-title">
+    <div class="container-page">
+      <SectionHeading
+        id="hobbie-title"
+        index="06"
+        eyebrow="Hobbies"
+        title="Centres d'intérêt"
+        description="Ce qui m'anime en dehors du code."
+      />
 
-      <div class="tw-mt-6 tw-grid tw-gap-4 md:tw-grid-cols-3">
-        <article
-          v-for="hobbie in hobbies"
+      <ul class="tw-mt-10 tw-grid tw-gap-4 sm:tw-mt-12 sm:tw-grid-cols-2 lg:tw-grid-cols-3 lg:tw-gap-5">
+        <li
+          v-for="(hobbie, index) in hobbies"
           :key="hobbie.id"
-          class="tw-h-full tw-rounded-xl tw-border tw-border-emerald-500/20 tw-bg-slate-800/60 tw-p-5 tw-transition hover:tw--translate-y-1 hover:tw-border-emerald-400/50 hover:tw-bg-slate-800"
+          v-reveal="index * 100"
+          class="card card-interactive tw-group tw-overflow-hidden tw-p-5 sm:tw-p-6"
+          :class="{ 'sm:tw-col-span-2 lg:tw-col-span-1': index === hobbies.length - 1 && hobbies.length % 2 === 1 }"
         >
-          <span class="tw-inline-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-lg tw-bg-emerald-500/20 tw-text-emerald-200">
-            <i :class="hobbie.icon"></i>
+          <span
+            class="tw-pointer-events-none tw-absolute tw--right-10 tw--top-10 tw-h-32 tw-w-32 tw-rounded-full tw-bg-emerald-400/10 tw-blur-2xl tw-transition tw-duration-500 group-hover:tw-bg-cyan-400/20"
+            aria-hidden="true"
+          ></span>
+          <span class="icon-tile tw-h-12 tw-w-12 tw-text-xl">
+            <i :class="hobbie.icon" aria-hidden="true"></i>
           </span>
-          <h3 class="tw-mt-3 tw-text-lg tw-font-bold tw-uppercase tw-text-white">{{ hobbie.titre }}</h3>
-          <p class="tw-mt-2 tw-text-sm tw-leading-relaxed tw-text-slate-200/90">{{ hobbie.contenu }}</p>
-        </article>
-      </div>
+          <h3 class="tw-mt-4 tw-text-lg tw-font-semibold">{{ hobbie.title }}</h3>
+          <p class="tw-mt-2 tw-text-[0.9375rem] tw-leading-relaxed tw-text-slate-400">{{ hobbie.content }}</p>
+        </li>
+      </ul>
     </div>
   </section>
 </template>

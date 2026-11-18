@@ -23,7 +23,17 @@ const router = createRouter({
       name: 'not-found',
       component: NotFoundView,
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) return savedPosition
+    if (to.hash) {
+      // Sur la même page, les liens d'ancre natifs gèrent déjà le défilement fluide
+      // (CSS scroll-behavior + scroll-padding-top) : on ne le double pas.
+      const samePage = from.matched.length > 0 && to.path === from.path
+      return samePage ? false : { el: to.hash, top: 24 }
+    }
+    return { top: 0 }
+  },
 })
 
 export default router
