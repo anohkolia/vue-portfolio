@@ -1,0 +1,55 @@
+<!--
+  Modèle d'e-mail EmailJS pour le formulaire de contact du portfolio.
+  À coller dans EmailJS : Email Templates → ton modèle → Content → Edit Content → Code Editor.
+
+  Réglages du modèle (champs autour du contenu) :
+    Subject    : [Portfolio] {{title}}
+    From Name  : {{name}}
+    Reply To   : {{email}}
+    To Email   : ton adresse de réception
+
+  Variables envoyées par le site (src/services/contact.js) :
+    {{name}} {{email}} {{phone}} {{title}} (= {{subject}}) {{message}} {{time}}
+-->
+<div style="margin:0;padding:24px 12px;background:#f1f5f9;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;border-collapse:separate;background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;">
+    <tr>
+      <td style="padding:24px 28px 20px;border-bottom:1px solid #e2e8f0;">
+        <p style="margin:0 0 6px;font-size:12px;font-weight:bold;letter-spacing:0.08em;text-transform:uppercase;color:#059669;">Nouveau message du portfolio</p>
+        <h1 style="margin:0;font-size:20px;line-height:1.35;color:#0f172a;">{{title}}</h1>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:20px 28px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" style="font-size:14px;line-height:1.5;">
+          <tr>
+            <td style="padding:3px 20px 3px 0;color:#64748b;white-space:nowrap;vertical-align:top;">Nom</td>
+            <td style="padding:3px 0;font-weight:bold;">{{name}}</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 20px 3px 0;color:#64748b;white-space:nowrap;vertical-align:top;">E-mail</td>
+            <td style="padding:3px 0;"><a href="mailto:{{email}}" style="color:#047857;">{{email}}</a></td>
+          </tr>
+          <tr>
+            <td style="padding:3px 20px 3px 0;color:#64748b;white-space:nowrap;vertical-align:top;">Téléphone</td>
+            <td style="padding:3px 0;">{{phone}}</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 20px 3px 0;color:#64748b;white-space:nowrap;vertical-align:top;">Reçu le</td>
+            <td style="padding:3px 0;">{{time}}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:0 28px 24px;">
+        <div style="padding:16px 18px;background:#f8fafc;border-left:3px solid #10b981;border-radius:6px;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{message}}</div>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:16px 28px;border-top:1px solid #e2e8f0;font-size:12px;color:#64748b;">
+        Répondez directement à cet e-mail pour écrire à {{name}}.
+      </td>
+    </tr>
+  </table>
+</div>
